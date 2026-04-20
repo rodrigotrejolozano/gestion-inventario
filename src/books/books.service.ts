@@ -1,9 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
+import { Book } from './entities/book.entity';
 
 @Injectable()
 export class BooksService {
+  private books: Book[] = [];
+
   create(createBookDto: CreateBookDto) {
     return 'This action adds a new book';
   }
