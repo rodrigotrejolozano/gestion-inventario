@@ -16,6 +16,7 @@ export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 
   @Post()
+  @HttpCode(201)
   create(@Body() createBookDto: CreateBookDto) {
     return this.booksService.create(createBookDto);
   }
@@ -33,6 +34,6 @@ export class BooksController {
   @Delete(':id')
   @HttpCode(204)
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.booksService.remove(id);
+    this.booksService.remove(id);
   }
 }
