@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import {
   IsString,
   IsOptional,
@@ -18,8 +19,9 @@ export class CreateBookDto {
   @MinLength(3)
   author: string;
 
-  @IsNumber()
   @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
   @IsPositive()
   year?: number;
 }
