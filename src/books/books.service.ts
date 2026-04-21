@@ -6,8 +6,10 @@ import { Book } from './entities/book.entity';
 export class BooksService {
   private books: Book[] = [];
 
+  private currentId = 1;
+
   private getId(): number {
-    return this.books.length + 1;
+    return this.currentId++;
   }
 
   create(createBookDto: CreateBookDto): Book {
