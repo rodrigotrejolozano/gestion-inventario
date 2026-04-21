@@ -35,9 +35,8 @@ export class BooksService {
     return book;
   }
 
-  remove(id: number): Book {
-    const book = this.findOne(id);
+  remove(id: number): void {
+    this.findOne(id);
     this.books = this.books.filter((book) => book.id !== id);
-    return book;
   }
 }
